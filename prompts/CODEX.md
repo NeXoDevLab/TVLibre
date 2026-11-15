@@ -49,7 +49,11 @@ PROCEDIMIENTO
    dentro de la autorización anterior. No inventes órdenes ni paquetes nuevos.
 5. Conserva todas las rutas de backup.json. Si hay error, no ocultes el fallo ni pases
    a cambios más agresivos; recupera lo necesario o indica la restauración concreta.
-6. Verifica el diario de limpieza. Los interruptores de privacidad de Amazon pueden
+6. Si encuentras un componente protegido deshabilitado por una limpieza anterior,
+   informa de su función y utiliza repair-plan solo para los paquetes que yo elija
+   expresamente. No habilites todos los paquetes desactivados. Si la IP ha cambiado,
+   find-backups busca los diarios por identidad.
+   Verifica el diario de limpieza. Los interruptores de privacidad de Amazon pueden
    necesitar comprobación visual con el mando; ayúdame a revisar los tres de privacidad
    y los dos de reproducción automática. No afirmes que están apagados solo por ADB.
 7. Sigue docs/LAUNCHERS.md: descarga fijada y hash, instalación sin desinstalación

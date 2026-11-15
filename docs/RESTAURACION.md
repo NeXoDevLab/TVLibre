@@ -71,3 +71,10 @@ Revisa IP y depuración en el TV. Si puedes abrir Ajustes, desactiva el servicio
 del launcher en sus menús y abre el inicio de Amazon. Conserva siempre la copia antes de tocar
 otras opciones. Este proyecto no ejecuta un restablecimiento de fábrica como recuperación
 automática ni promete reconstruir datos que ya no existen.
+
+## Buscar una copia tras cambiar la IP
+
+Usa `find-backups --directory state` con el serial actual del TV. Busca por identidad
+y distingue firmware/usuario incompatibles, planes y diarios válidos. Conserva los diarios
+originales: la reparación de 0.2 es una sesión nueva que también puede deshacerse.
+Los diarios antiguos que incluían el componente de emparejamiento siguen siendo restaurables.

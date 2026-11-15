@@ -68,7 +68,7 @@ public final class Keeper extends Service {
         startForeground(1, new Notification.Builder(this)
                 .setSmallIcon(android.R.drawable.ic_menu_recent_history)
                 .setContentTitle("dumbtv")
-                .setContentText(getString(R.string.keeper_notification))
+                .setContentText("home keeper")
                 .build());
         // Keep the binder queries off the UI thread: this process draws the home screen.
         thread = new HandlerThread("keeper");

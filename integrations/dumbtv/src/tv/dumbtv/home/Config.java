@@ -36,15 +36,15 @@ import java.util.TimeZone;
  */
 final class Config {
     static final String FILE = "home.conf";
+    /** Options › Export settings writes this copy into the media folder, for adb pull. */
+    static final String EXPORT = "home-export.conf";
 
     static final class Choice {
-        final String key;
-        final int title;
-        final String[] values;
-        final int[] names;
+        final String key, title;
+        final String[] values, names;
         final String fallback;
 
-        Choice(String key, int title, String fallback, String[] values, int[] names) {
+        Choice(String key, String title, String fallback, String[] values, String[] names) {
             this.key = key;
             this.title = title;
             this.fallback = fallback;
@@ -52,58 +52,86 @@ final class Config {
             this.names = names;
         }
 
-        String name(Context context, String value) {
+        String name(String value) {
             int i = Arrays.asList(values).indexOf(value);
-            return i < 0 ? value : context.getString(names[i]);
+            return i < 0 ? value : names[i];
         }
     }
 
-    static final Choice ACCENT = new Choice("accent", R.string.choice_accent, "blue",
+    static final Choice ACCENT = new Choice("accent", "Accent color", "blue",
             new String[] {"white", "blue", "cyan", "green", "amber", "red", "pink", "violet"},
-            new int[] {R.string.choice_accent_0, R.string.choice_accent_1, R.string.choice_accent_2, R.string.choice_accent_3, R.string.choice_accent_4, R.string.choice_accent_5, R.string.choice_accent_6, R.string.choice_accent_7});
-    static final Choice TILES = new Choice("tiles", R.string.choice_tiles, "medium",
+            new String[] {"White", "Blue", "Cyan", "Green", "Amber", "Red", "Pink", "Violet"});
+    static final Choice TILES = new Choice("tiles", "Tile size", "medium",
             new String[] {"small", "medium", "large"},
-            new int[] {R.string.choice_tiles_0, R.string.choice_tiles_1, R.string.choice_tiles_2});
-    static final Choice LAYOUT = new Choice("layout", R.string.choice_layout, "rows",
+            new String[] {"Small", "Medium", "Large"});
+    static final Choice LAYOUT = new Choice("layout", "Layout", "rows",
             new String[] {"rows", "grid"},
-            new int[] {R.string.choice_layout_0, R.string.choice_layout_1});
-    static final Choice ORDER = new Choice("order", R.string.choice_order, "custom",
+            new String[] {"Rows", "Grid"});
+    /**
+     * Where the rows sit. Bottom leaves the clock, Options and Settings at the top and moves the
+     * rows down to the bottom edge, so the middle of the screen shows the wallpaper.
+     */
+    static final Choice POSITION = new Choice("position", "Home position", "top",
+            new String[] {"top", "bottom"},
+            new String[] {"Top", "Bottom"});
+    static final Choice ORDER = new Choice("order", "App order", "custom",
             new String[] {"custom", "recent"},
-            new int[] {R.string.choice_order_0, R.string.choice_order_1});
-    static final Choice LABELS = new Choice("labels", R.string.choice_labels, "focus",
+            new String[] {"Your order", "Recently used"});
+    static final Choice ALL_APPS = new Choice("all_apps", "All apps section", "off",
+            new String[] {"off", "on"},
+            new String[] {"Hidden", "Shown"});
+    static final Choice LABELS = new Choice("labels", "App names", "focus",
             new String[] {"focus", "always", "never"},
-            new int[] {R.string.choice_labels_0, R.string.choice_labels_1, R.string.choice_labels_2});
-    static final Choice CLOCK = new Choice("clock", R.string.choice_clock, "auto",
+            new String[] {"On focus", "Always", "Never"});
+    static final Choice CLOCK = new Choice("clock", "Clock", "auto",
             new String[] {"auto", "24h", "12h"},
-            new int[] {R.string.choice_clock_0, R.string.choice_clock_1, R.string.choice_clock_2});
-    static final Choice MEMORY = new Choice("memory", R.string.choice_memory, "off",
+            new String[] {"System", "24-hour", "12-hour"});
+    /** Free memory under the date, for TVs that are short of it. Shows only; frees nothing. */
+    static final Choice MEMORY = new Choice("memory", "Memory meter", "off",
             new String[] {"off", "on"},
-            new int[] {R.string.choice_memory_0, R.string.choice_memory_1});
-    static final Choice INPUTS = new Choice("inputs", R.string.choice_inputs, "on",
+            new String[] {"Hidden", "Shown"});
+    static final Choice INPUTS = new Choice("inputs", "Inputs row", "on",
             new String[] {"on", "off"},
-            new int[] {R.string.choice_inputs_0, R.string.choice_inputs_1});
-    static final Choice SWITCH = new Choice("switch", R.string.choice_switch, "auto",
+            new String[] {"Shown", "Hidden"});
+    static final Choice SWITCH = new Choice("switch", "Open inputs with", "auto",
             new String[] {"auto", "tv", "home"},
-            new int[] {R.string.choice_switch_0, R.string.choice_switch_1, R.string.choice_switch_2});
-    static final Choice BACKGROUND = new Choice("background", R.string.choice_background, "black",
+            new String[] {"Automatic", "The TV's app", "dumbtv home"});
+    static final Choice BACKGROUND = new Choice("background", "Background", "black",
             new String[] {"black", "graphite", "midnight", "image", "adaptive", "adaptive-tint"},
-            new int[] {R.string.choice_background_0, R.string.choice_background_1, R.string.choice_background_2, R.string.choice_background_3, R.string.choice_background_4, R.string.choice_background_5});
-    static final Choice DIM = new Choice("dim", R.string.choice_dim, "40",
+            new String[] {"Black", "Graphite", "Midnight", "Image file", "Adaptive solid", "Adaptive wallpaper tint"});
+    static final Choice DIM = new Choice("dim", "Image dim", "40",
             new String[] {"0", "20", "40", "60", "80"},
-            new int[] {R.string.choice_dim_0, R.string.choice_dim_1, R.string.choice_dim_2, R.string.choice_dim_3, R.string.choice_dim_4});
-    static final Choice ROTATE = new Choice("rotate", R.string.choice_rotate, "off",
+            new String[] {"0%", "20%", "40%", "60%", "80%"});
+
+    static final Choice ROTATE = new Choice("rotate", "Wallpaper rotation", "off",
             new String[] {"off", "visit", "hourly", "daily", "daytime"},
-            new int[] {R.string.choice_rotate_0, R.string.choice_rotate_1, R.string.choice_rotate_2, R.string.choice_rotate_3, R.string.choice_rotate_4});
-    static final Choice LOCK = new Choice("lock", R.string.choice_lock, "off",
+            new String[] {"Off", "Every return home", "Every hour", "Every day", "By time of day"});
+
+    /**
+     * For a TV children use: hides Options and Settings and turns off the tile menu, so the home
+     * screen only opens apps and inputs. Holding Menu for {@link Home#UNLOCK_MS} opens Options.
+     */
+    static final Choice LOCK = new Choice("lock", "Child lock", "off",
             new String[] {"off", "on"},
-            new int[] {R.string.choice_lock_0, R.string.choice_lock_1});
-    static final Choice TILE_STYLE = new Choice("tile_style", R.string.choice_tile_style, "original",
-            new String[] {"original", "afterglow"},
-            new int[] {R.string.choice_tile_style_0, R.string.choice_tile_style_1});
-    static final Choice[] CHOICES = {ACCENT, TILES, LAYOUT, ORDER, LABELS, CLOCK, MEMORY, INPUTS, SWITCH, BACKGROUND, DIM, ROTATE, LOCK, TILE_STYLE};
+            new String[] {"Off", "On"});
+
+    static final Choice TILE_STYLE = new Choice("tile_style", "App tile style", "original",
+            new String[] {"original", "afterglow"}, new String[] {"Original", "Afterglow"});
+    /** Options and Settings in the corner: text chips, or icon buttons whose name shows on focus. */
+    static final Choice CHIPS = new Choice("chips", "Chip style", "text",
+            new String[] {"text", "icons"}, new String[] {"Text", "Icons"});
+    /** The banner of hand-picked titles from {@link Library}; hidden anyway while it has none. */
+    static final Choice LIBRARY = new Choice("library", "Library banner", "on",
+            new String[] {"on", "off"}, new String[] {"Shown", "Hidden"});
+    static final Choice FILTER_WATCH = new Choice("filter_watch", "Keep personalDNSfilter running", "off",
+            new String[] {"off", "on"},
+            new String[] {"Off", "On"});
+    static final Choice[] CHOICES = {ACCENT, TILES, LAYOUT, POSITION, ORDER, ALL_APPS, LABELS, CLOCK, MEMORY, INPUTS, SWITCH, BACKGROUND, DIM, ROTATE, LOCK, TILE_STYLE, CHIPS, LIBRARY, FILTER_WATCH};
 
     /** Folder of wallpapers, next to home.conf, that Background › Image file rotates through. */
     static final String WALLPAPERS = "wallpapers";
+    /** Folder and list of {@link Library}, next to home.conf like the wallpapers. */
+    static final String LIBRARY_DIR = "library", LIBRARY_FILE = "library.conf";
     private static final String OFFSET = "wallpaper.offset";
 
     private static final int[] ACCENTS = {
@@ -156,7 +184,7 @@ final class Config {
         signature = sig;
         values.clear();
         if (file.isFile()) read();
-        if (mergeShared()) save();
+        mergeShared();
         version++;
     }
 
@@ -186,14 +214,27 @@ final class Config {
      * write on Fire OS 8. The push is applied once: what was applied is remembered, so the same
      * file is not applied again and a later change on the TV is not overwritten by it.
      */
-    private boolean mergeShared() {
-        if (sharedFile == null || !sharedFile.isFile()) return false;
+    private void mergeShared() {
+        if (sharedFile == null || !sharedFile.isFile()) return;
         Map<String, String> incoming = parse(sharedFile);
-        if (incoming.isEmpty()) return false;
-        if (incoming.equals(parse(appliedFile))) return false;
+        if (incoming.isEmpty()) return;
+        if (incoming.equals(parse(appliedFile))) return;
+        Map<String, String> merged = new LinkedHashMap<>(values);
+        merged.putAll(incoming);
+        // The marker goes first and is taken back if the settings cannot be saved, so an import
+        // is applied exactly once: a saved import without its marker would be applied again on
+        // the next refresh, over whatever was changed in Options since.
+        if (!writeSettings(appliedFile, incoming)) {
+            signature = Long.MIN_VALUE;
+            return;
+        }
+        if (!writeSettings(file, merged)) {
+            if (!appliedFile.delete()) Log.w("dumbtv", "could not withdraw " + appliedFile);
+            signature = Long.MIN_VALUE;
+            return;
+        }
         values.putAll(incoming);
-        writeSettings(appliedFile, incoming);
-        return true;
+        signature = signature();
     }
 
     private void read() {
@@ -217,11 +258,21 @@ final class Config {
     }
 
     private void save() {
-        writeSettings(file, values);
-        signature = signature();
+        signature = writeSettings(file, values) ? signature() : Long.MIN_VALUE;
     }
 
-    private static void writeSettings(File target, Map<String, String> settings) {
+    /**
+     * Writes a copy of the settings into the media folder, the one folder adb can read on Fire OS
+     * 8. It has its own name so it is never taken for a push: pushing it back as home.conf
+     * restores it. Returns the copy, or null when it could not be written.
+     */
+    File export() {
+        if (shared == null || (!shared.isDirectory() && !shared.mkdirs())) return null;
+        File copy = new File(shared, EXPORT);
+        return writeSettings(copy, values) ? copy : null;
+    }
+
+    private static boolean writeSettings(File target, Map<String, String> settings) {
         File tmp = new File(target.getParentFile(), target.getName() + ".tmp");
         try (Writer w = new OutputStreamWriter(new FileOutputStream(tmp), StandardCharsets.UTF_8)) {
             w.write("# dumbtv home. Edit on the TV (Options) or here; unknown keys are kept.\n");
@@ -230,9 +281,11 @@ final class Config {
             }
         } catch (IOException e) {
             Log.w("dumbtv", "could not write " + tmp, e);
-            return;
+            return false;
         }
-        if (!tmp.renameTo(target)) Log.w("dumbtv", "could not replace " + target);
+        if (tmp.renameTo(target)) return true;
+        Log.w("dumbtv", "could not replace " + target);
+        return false;
     }
 
     String get(String key, String fallback) {
@@ -263,6 +316,15 @@ final class Config {
     void setList(String key, List<String> items) {
         // String.join is Android 8+; TextUtils.join keeps Fire OS 6 (Android 7.1) working.
         set(key, TextUtils.join(",", items));
+    }
+
+    /** Every key=value with this prefix in one string, to notice when any of them changes. */
+    String joined(String prefix) {
+        StringBuilder out = new StringBuilder();
+        for (Map.Entry<String, String> e : values.entrySet()) {
+            if (e.getKey().startsWith(prefix)) out.append(e.getKey()).append('=').append(e.getValue()).append('\n');
+        }
+        return out.toString();
     }
 
     void removePrefix(String... prefixes) {
@@ -359,6 +421,17 @@ final class Config {
             }
         });
         return out;
+    }
+
+    /** The library folder that holds a library.conf: the app's own first, then the media one. */
+    File libraryDir() {
+        File own = new File(dir, LIBRARY_DIR);
+        if (new File(own, LIBRARY_FILE).isFile()) return own;
+        if (shared != null) {
+            File media = new File(shared, LIBRARY_DIR);
+            if (new File(media, LIBRARY_FILE).isFile()) return media;
+        }
+        return null;
     }
 
     private static void addPictures(File folder, List<File> out) {

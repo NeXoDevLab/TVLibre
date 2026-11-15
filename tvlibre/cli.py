@@ -3,7 +3,7 @@
 import argparse
 import json
 import sys
-from . import __version__, core, launcher
+from . import __version__, core, launcher, diagnostics
 from .adb import ADB, TVLibreError
 
 
@@ -12,7 +12,17 @@ def parser():
     p.add_argument("--version", action="version", version=__version__)
     p.add_argument("--serial", help="IP:5555 o identificador ADB. Obligatorio para acceder al TV.")
     p.add_argument("--adb", default="adb", help="Ruta de Android Platform Tools/adb")
+    p.add_argument("--adb-server-port", type=int, help="Servidor ADB independiente, p. ej. 5038 en macOS")
     sub = p.add_subparsers(dest="command", required=True)
+    sub.add_parser('devices', help='Catálogo externo de modelos; no amplía permisos de limpieza')
+    analyze = sub.add_parser('analyze', help='Analizar un inventario guardado sin conectar al TV')
+    analyze.add_argument('--inventory', required=True)
+    find = sub.add_parser('find-backups', help='Buscar diarios por identidad aunque haya cambiado la IP')
+    find.add_argument('--directory', default='state')
+    repair = sub.add_parser('repair-plan', help='Proponer reparación de componentes protegidos elegidos')
+    repair.add_argument('--packages', nargs='+', required=True)
+    repair.add_argument('--out', required=True)
+    repair.add_argument('--experimental', action='store_true')
     for name in ("doctor", "inventory"):
         item = sub.add_parser(name, help="Diagnóstico o inventario sin cambiar el TV")
         item.add_argument("--out", help="Guardar JSON local")
@@ -34,7 +44,7 @@ def parser():
     commands = item.add_subparsers(dest="action", required=True)
     commands.add_parser("list")
     fetch = commands.add_parser("download")
-    fetch.add_argument("--id", choices=("dumbtv-es", "dumbtv-oficial"), default="dumbtv-es")
+    fetch.add_argument("--id", choices=("dumbtv-es", "dumbtv-oficial", "dumbtv-es-1.6"), default="dumbtv-es")
     fetch.add_argument("--out", required=True)
     install = commands.add_parser("install")
     install.add_argument("--apk", required=True)
@@ -65,6 +75,12 @@ def main(argv=None):
     p = parser()
     args = p.parse_args(argv)
     try:
+        if args.command == 'devices':
+            emit(diagnostics.catalog())
+            return 0
+        if args.command == 'analyze':
+            emit(diagnostics.analyze(core.read_json(args.inventory)))
+            return 0
         if args.command == "launcher" and args.action == "list":
             emit(launcher.catalog())
             return 0
@@ -75,9 +91,13 @@ def main(argv=None):
             p.error("indica --serial antes del comando; no se elige un dispositivo por defecto")
         if hasattr(args, "yes") and not args.yes:
             raise TVLibreError("Revisa el plan o la guía y añade --yes para ejecutar esta operación.")
-        adb = ADB(args.serial, args.adb)
+        adb = ADB(args.serial, args.adb, args.adb_server_port)
         adb.connect()
-        if args.command == "doctor":
+        if args.command == 'find-backups':
+            emit(diagnostics.backups(args.directory, adb.device()))
+        elif args.command == 'repair-plan':
+            emit(core.repair_plan(adb, args.packages, args.experimental), args.out)
+        elif args.command == "doctor":
             device = adb.device()
             try:
                 core.supported(device)

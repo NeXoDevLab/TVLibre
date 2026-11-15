@@ -5,7 +5,7 @@
 ## Elegir un perfil
 
 **Conservador** propone 8 candidatos de métricas, diagnóstico e identificación de contenido,
-y los indicadores de privacidad del espacio `secure`. **Equilibrado** amplía la lista a 33
+y los indicadores de privacidad del espacio `secure`. **Equilibrado** amplía la lista a 32
 candidatos y añade reproducción automática, avisos flotantes y dos escalas de animación.
 El nombre de un paquete no siempre documenta su función: las descripciones expresan la
 clasificación usada y señalan los casos cuya finalidad pública no está clara.
@@ -40,7 +40,6 @@ El plan filtra por instalación, estado previo y `--keep`. Esta tabla no es una 
 | `com.amazon.shoptv.client` | Equilibrado | Compras desde el televisor |
 | `com.amazon.shoptv.firetv.client` | Equilibrado | Compras desde Fire TV |
 | `com.amazon.sneakpeek` | Equilibrado | Vista previa y recomendaciones |
-| `com.amazon.storm.lightning.tutorial` | Equilibrado | Tutorial de la interfaz |
 | `com.amazon.systemnotices` | Equilibrado | Avisos de Amazon |
 | `com.amazon.tigris` | Equilibrado | Componente auxiliar de Amazon; función no documentada públicamente |
 | `com.amazon.tmm.tutorial` | Equilibrado | Tutorial de administración de tareas |

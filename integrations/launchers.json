@@ -5,9 +5,9 @@
     "mode": "integrado",
     "package": "tv.dumbtv.home",
     "source": "https://github.com/humblemuzzu/dumbtv",
-    "version": "1.6-es",
-    "apk_url": "https://github.com/NeXoDevLab/tvlibre/releases/download/v0.1.0/dumbtv-home-1.6-es.apk",
-    "sha256": "85f6b36cf0cd7a65c314b63685116e58ff9a93f8f60f257f55ce75b5ddd096df",
+    "version": "1.10-es",
+    "apk_url": "https://github.com/NeXoDevLab/tvlibre/releases/download/v0.2.0/dumbtv-home-1.10-es.apk",
+    "sha256": "1891300252766be49b75a2afc41eb6d28382cf51e9aa3addf0f66e4f81e9e186",
     "note": "Traducción local MIT; firma diferente de la versión oficial. Home depende del firmware."
   },
   {
@@ -16,9 +16,9 @@
     "mode": "integrado",
     "package": "tv.dumbtv.home",
     "source": "https://github.com/humblemuzzu/dumbtv",
-    "version": "1.6",
-    "apk_url": "https://github.com/humblemuzzu/dumbtv/releases/download/launcher-v1.6/dumbtv-home.apk",
-    "sha256": "9e0f95ed141a980295eba0649ee2f7d1d8b49eacced31246bd2445d92954fdd9",
+    "version": "1.10",
+    "apk_url": "https://github.com/humblemuzzu/dumbtv/releases/download/launcher-v1.10/dumbtv-home.apk",
+    "sha256": "9ff9e1ba4e658c48d433327f465b4cf8f9d49c61d159488d7e4639fa81522b22",
     "note": "Versión fijada de origen; no se cambia automáticamente a latest."
   },
   {
@@ -50,5 +50,16 @@
     "mode": "referencia externa",
     "source": "https://github.com/tsynik/LeanbackLauncher",
     "note": "Proyecto orientado a Fire TV. Revisar actividad, versión y compatibilidad antes de instalar."
+  },
+  {
+    "id": "dumbtv-es-1.6",
+    "name": "dumbtv Home español 1.6 (histórica)",
+    "mode": "integrado",
+    "package": "tv.dumbtv.home",
+    "source": "https://github.com/humblemuzzu/dumbtv",
+    "version": "1.6-es",
+    "apk_url": "https://github.com/NeXoDevLab/tvlibre/releases/download/v0.1.0/dumbtv-home-1.6-es.apk",
+    "sha256": "85f6b36cf0cd7a65c314b63685116e58ff9a93f8f60f257f55ce75b5ddd096df",
+    "note": "Traducción local MIT; firma diferente de la versión oficial. Home depende del firmware."
   }
 ]

@@ -12,7 +12,9 @@
 
 Los perfiles y protecciones recogen datos de listas MIT y la experiencia con este proyecto.
 Fuente: https://github.com/Gathin23/cleanyourtv
-Revisión de referencia: `572ce2cbe98b53654cea3d262ee8558a5872dfd1`.
+Revisión inicial: `572ce2cbe98b53654cea3d262ee8558a5872dfd1`.
+Revisión técnica de herramientas: `ddc3b2cdce299a5f30aa2da2437edc40f3cf6f2e`;
+las mejoras del motor Python se implementan en TVLibre.
 Se conserva a continuación su aviso de licencia:
 
 ```text

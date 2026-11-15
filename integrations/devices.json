@@ -1,0 +1,519 @@
+{
+  "reviewed_at": "2026-11-15",
+  "automatic_support_expansion": false,
+  "devices": [
+    {
+      "id": "_template",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/_template.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Brand Model (Google TV, Android 14)",
+      "platform": "androidtv",
+      "status": "untested",
+      "tested_on": ""
+    },
+    {
+      "id": "androidtv-andersson-shandao",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-andersson-shandao.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Andersson Android TV (Vestel, MediaTek m7632)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "UKNV.260304.001 (Android 14, sdk 34); first done on RTMA.250416.082 (Android 11)"
+    },
+    {
+      "id": "androidtv-benq-gp01",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-benq-gp01.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "BenQ GP520 projector (BenQGP01, Google TV, Android 11)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "RTMA.250416.017 (Android 11, sdk 30), security patch 2025-05-01"
+    },
+    {
+      "id": "androidtv-changhong-ai-pont",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-changhong-ai-pont.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Changhong AI PONT (Google TV, Android 14)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "UKNV.260603.001"
+    },
+    {
+      "id": "androidtv-google-chromecast-4k",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-google-chromecast-4k.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Chromecast with Google TV 4K (Google TV, Android 14)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "UTTC.250917.004.14193937"
+    },
+    {
+      "id": "androidtv-hisense-65u8qg",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-hisense-65u8qg.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Hisense 65U8QG (Google TV, Android 14)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "Hisense/wutaishan/wutaishan:14/UKN6.251123.001.049/00.00.00.49:user/release-keys"
+    },
+    {
+      "id": "androidtv-hisense-smarttv-4k-ffm",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-hisense-smarttv-4k-ffm.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Hisense SmartTV 4K FFM (Google TV, Android 11)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "RTT2.220118.001"
+    },
+    {
+      "id": "androidtv-oneplus-y-series",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-oneplus-y-series.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "OnePlus TV Y Series (Skyworth, Android TV 11)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "RTO9.231122.002 (Android 11, sdk 30)"
+    },
+    {
+      "id": "androidtv-onn-streaming-device-4k-pro",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-onn-streaming-device-4k-pro.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "onn. Streaming Device 4K Pro (Google TV, Android 14)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "URO4.260304.011.B1.15051976"
+    },
+    {
+      "id": "androidtv-philips-24na-4k",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-philips-24na-4k.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Philips 24NA 4K Google TV (Skyworth, Android 14)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "UKN7.260716.014 (Android 14, sdk 34)"
+    },
+    {
+      "id": "androidtv-philips-ta6-lt",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-philips-ta6-lt.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Philips Google TV TA6 LT (TPV)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "UKNV.260227.001"
+    },
+    {
+      "id": "androidtv-philips-tpm191e",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-philips-tpm191e.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Philips TPM191E Android TV (Android 12)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "Philips/PH9M_EA_5599/PH9M_EA_5599:12/STT2.230526.001/4215:user/release-keys"
+    },
+    {
+      "id": "androidtv-tcl-g08",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-tcl-g08.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "TCL Smart TV Pro G08 (Google TV, Android 14)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "tcl9618-user 14 UTT2.250416.001 AU14 release-keys"
+    },
+    {
+      "id": "androidtv-xiaomi-mi-tv-stick",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-xiaomi-mi-tv-stick.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Xiaomi Mi TV Stick (MiTV-AESP0, Android TV 9)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "MiTV-AESP0, Android 9 (SDK 28), build PI.2055 release-keys, security patch 2022-08-05"
+    },
+    {
+      "id": "androidtv-xiaomi-mitv-mssp3",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/androidtv-xiaomi-mitv-mssp3.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Xiaomi Mi TV (MiTV-MSSP3, Android TV 9)",
+      "platform": "androidtv",
+      "status": "partial",
+      "tested_on": "PI.4663 release-keys"
+    },
+    {
+      "id": "fireos-amazon-aftalmo",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftalmo.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon AFTALMO",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7715.5585N.0035736899840"
+    },
+    {
+      "id": "fireos-amazon-aftgazl",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftgazl.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Cube, 3rd gen (AFTGAZL)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7717.5741N"
+    },
+    {
+      "id": "fireos-amazon-afthy7abba",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-afthy7abba.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Fire TV smart TV (AFTHY7ABBA)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "RS8185.3885N"
+    },
+    {
+      "id": "fireos-amazon-aftka-ps7697",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftka-ps7697.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Stick 4K Max, 1st gen (AFTKA), Fire OS 7.6.9.7",
+      "platform": "fireos",
+      "status": "partial",
+      "tested_on": "PS7697.4800N"
+    },
+    {
+      "id": "fireos-amazon-aftka-ps7713",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftka-ps7713.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Stick 4K Max, 1st gen (AFTKA), Fire OS 7.7.1.3",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7713.5443N"
+    },
+    {
+      "id": "fireos-amazon-aftkm-rs8185",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftkm-rs8185.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Stick 4K, 2nd gen (AFTKM)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "RS8185.3898N"
+    },
+    {
+      "id": "fireos-amazon-aftkm",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftkm.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Stick 4K, 2nd gen (AFTKM)",
+      "platform": "fireos",
+      "status": "partial",
+      "tested_on": "RS8182.3811N"
+    },
+    {
+      "id": "fireos-amazon-aftkrt",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftkrt.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Stick 4K Max, 2nd gen (AFTKRT)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "RS8182.3811N (first unit, partial); RS8185.3891N (second unit, full pass); RS8185.3891N (third unit, full pass with dumbtv home); RS8185.3891N (fourth unit, full pass with dumbtv home 1.6)"
+    },
+    {
+      "id": "fireos-amazon-aftma08c15",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftma08c15.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Stick 4K Plus (AFTMA08C15)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "RS8185.3891N"
+    },
+    {
+      "id": "fireos-amazon-aftmm",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftmm.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Stick 4K, 1st gen (AFTMM)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "Fire TV Stick 4K 1st gen (mantis), Fire OS 6.7.1.1: debloat, lockdown, DNS filter and the Keeper launcher; verify.sh exited 0; HOME lands on dumbtv in under 0.3 s with a real remote; boot takes ~45–50 s (BOOT_COMPLETED)"
+    },
+    {
+      "id": "fireos-amazon-aftn",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftn.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV, 3rd gen (AFTN Pendant)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "Fire TV 3rd gen (pendant), Fire OS 6.2.8.0 / NS6709: debloat, lockdown, DNS filter and Keeper launcher; verify.sh passed"
+    },
+    {
+      "id": "fireos-amazon-aftna1322d",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftna1322d.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon AFTNA1322D",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "RS8185.3898N.0033018558976"
+    },
+    {
+      "id": "fireos-amazon-aftna67200",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftna67200.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV 4-Series television (AFTNA67200), Fire OS 8.1.8.5",
+      "platform": "fireos",
+      "status": "partial",
+      "tested_on": "RS8185.3885N"
+    },
+    {
+      "id": "fireos-amazon-aftolcbc82",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftolcbc82.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Fire TV Edition television (AFTOLCBC82)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "RS8153.3202N, then RS8180.3746N after a staged OTA applied on the first reboot; a second set on RS8180.3746N; a third set (Hisense 43QD6) on RS8180.3746N"
+    },
+    {
+      "id": "fireos-amazon-aftomna003",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftomna003.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Ember 55 (Fire TV Omni Mini-LED), Fire OS 8.0",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "RS8185.3885N"
+    },
+    {
+      "id": "fireos-amazon-aftr-ps7699",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftr-ps7699.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Cube, 2nd gen (AFTR)",
+      "platform": "fireos",
+      "status": "partial",
+      "tested_on": "PS7699.4896N"
+    },
+    {
+      "id": "fireos-amazon-aftr",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftr.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Cube, 2nd gen (AFTR)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7713.5443N"
+    },
+    {
+      "id": "fireos-amazon-aftss",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftss.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Stick HD, 2024 and Fire TV Stick Lite, 2020 (AFTSS), Fire OS 7.7.1.7",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7717.5741N"
+    },
+    {
+      "id": "fireos-amazon-aftsss",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftsss.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV Stick, 3rd gen (AFTSSS)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7717.5741N (first unit, partial); PS7712.5370N (second unit, full pass with dumbtv home 1.9); PS7717.5746N (third unit, full pass with dumbtv home 1.9)"
+    },
+    {
+      "id": "fireos-amazon-aftti43",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-amazon-aftti43.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Amazon Fire TV 4-Series (2021), 43-inch (AFTTI43)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7717.5741N"
+    },
+    {
+      "id": "fireos-bush-aftsh3f7ef",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-bush-aftsh3f7ef.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Bush 43USF26 4K Freely Fire TV Edition (AFTSH3F7EF)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "RS8185.3887N"
+    },
+    {
+      "id": "fireos-grundig-afteu014",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-grundig-afteu014.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Grundig 50 UHD AGA Fire TV Edition (AFTEU014), Fire OS 7.6.8.5",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7685.4487N"
+    },
+    {
+      "id": "fireos-hisense-aftcibfbd1",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-hisense-aftcibfbd1.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Hisense 65U65SFC Pro Fire TV Edition (AFTCIBFBD1)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "Fire OS 8.1.8.0, RS8180.3749N (Android 11, SDK 30)"
+    },
+    {
+      "id": "fireos-hisense-aftcu9343b",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-hisense-aftcu9343b.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Hisense 55QD75SFC Fire TV (AFTCU9343B), Fire OS 14",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "Fire OS 14, SL14SHIP1015/168N (Android 14, SDK 34)"
+    },
+    {
+      "id": "fireos-hisense-aftha001-ps7715",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-hisense-aftha001-ps7715.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Hisense 58U6HF Fire TV (AFTHA001), PS7715.5585N",
+      "platform": "fireos",
+      "status": "untested",
+      "tested_on": "PS7715.5585N"
+    },
+    {
+      "id": "fireos-hisense-aftha001-ps7717",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-hisense-aftha001-ps7717.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Hisense Fire TV (AFTHA001), PS7717.5746N",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7717.5746N"
+    },
+    {
+      "id": "fireos-hisense-aftha001",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-hisense-aftha001.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Hisense 58U6HF Fire TV (AFTHA001)",
+      "platform": "fireos",
+      "status": "partial",
+      "tested_on": "Fire OS 7.7.1.7, PS7717.5741N (Android 9, SDK 28)"
+    },
+    {
+      "id": "fireos-hisense-aftha004",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-hisense-aftha004.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Hisense 55QD65NF Fire TV Edition (AFTHA004)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "Fire OS 7.7.1.7, PS7717.5741N (Android 9, SDK 28)"
+    },
+    {
+      "id": "fireos-insignia-aftdct31",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-insignia-aftdct31.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Insignia Fire TV (AFTDCT31): 50\\\" F30 and 65\\\" DF710",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7717.5741N (50 inch); also PS7715.5585N, Fire OS 7.7.1.5, on a 65 inch set"
+    },
+    {
+      "id": "fireos-insignia-afteamr311",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-insignia-afteamr311.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Insignia Fire TV Edition TV (AFTEAMR311)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "NS6711"
+    },
+    {
+      "id": "fireos-insignia-afthy7abba",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-insignia-afthy7abba.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Insignia 50\\\" F50 Fire TV (NS-50F502NA26, AFTHY7ABBA)",
+      "platform": "fireos",
+      "status": "partial",
+      "tested_on": "RS8185.3885N"
+    },
+    {
+      "id": "fireos-insignia-aftjmst12",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-insignia-aftjmst12.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Insignia AFTJMST12",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "NS6711"
+    },
+    {
+      "id": "fireos-onida-aftgro001",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-onida-aftgro001.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Onida 43\\\" Fire TV Edition TV (AFTGRO001)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "Fire TV Edition television, Fire OS 7.7.1.x"
+    },
+    {
+      "id": "fireos-onida-aftle",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-onida-aftle.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Onida Fire TV Edition (AFTLE)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "NS6711 (Fire OS 6, SDK 25)"
+    },
+    {
+      "id": "fireos-redmi-aftmv00",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-redmi-aftmv00.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Redmi Smart Fire TV 32 (AFTMV00)",
+      "platform": "fireos",
+      "status": "partial",
+      "tested_on": "Redmi Smart Fire TV 32 (L32R8-FVIN), Fire OS 7.7.1.7 (sdk 28): debloat (20 packages), lockdown (5 protected), privacy settings, DNS filter (382 entries); verify passed; HOME lands on Amazon launcher; launcher not tested; boot ~45 s"
+    },
+    {
+      "id": "fireos-tcl-aftche92d8",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-tcl-aftche92d8.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "TCL 65M8LF Fire TV (AFTCHE92D8)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "tcl9618_aosp-user 14 UD2A.240505.001.W1 AU105 release-keys (Android 14, SDK 34)"
+    },
+    {
+      "id": "fireos-tcl-aftdec012e",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-tcl-aftdec012e.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "TCL 75Q691F Fire TV (AFTDEC012E)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "Fire OS 8.1, RS8185.389N"
+    },
+    {
+      "id": "fireos-tcl-aftma475b1",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-tcl-aftma475b1.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "TCL 55PF650 Fire TV (AFTMA475B1)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "Fire OS 8.1.8.5, RS8185.3885N"
+    },
+    {
+      "id": "fireos-tcl-aftshn02",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-tcl-aftshn02.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "TCL AFTSHN02",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7717.5741N.0036408028416"
+    },
+    {
+      "id": "fireos-toshiba-aftkmst12",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-toshiba-aftkmst12.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Toshiba 4K Fire TV Edition TV (AFTKMST12)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "NS6708, NS6711"
+    },
+    {
+      "id": "fireos-xiaomi-aftanna0",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-xiaomi-aftanna0.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Xiaomi L55M7-FVEU Fire TV (AFTANNA0)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "PS7706.5107N"
+    },
+    {
+      "id": "fireos-xiaomi-aftbr92d74",
+      "source": "https://github.com/humblemuzzu/dumbtv/blob/b35f3ade7b92d03357ce191844525b3448e57285/catalog/devices/fireos-xiaomi-aftbr92d74.yaml",
+      "evidence": "informe externo; no probado por TVLibre",
+      "title": "Xiaomi TV F Pro 75 Fire TV (AFTBR92D74)",
+      "platform": "fireos",
+      "status": "tested",
+      "tested_on": "RS8185.3885N"
+    }
+  ]
+}
