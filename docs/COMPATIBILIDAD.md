@@ -15,7 +15,7 @@ comercial como única prueba: generaciones, regiones y revisiones pueden llevar 
 | Amazon SDK 28, otros modelos | Sí | Solo `--experimental` | Solo prueba explícita; depende del firmware |
 | Amazon SDK 29/30 | Sí | Solo `--experimental` | Guard experimental; puede ser rechazado |
 | Amazon SDK 22, Fire OS 5 | Si ADB responde | Bloqueada | APK integrado requiere SDK 25 mínimo |
-| SDK 31 o superior | Si ADB responde | Bloqueada en 0.1 | Sin ruta validada en TVLibre |
+| SDK 31 o superior | Si ADB responde | Bloqueada en 0.2 | Sin ruta validada en TVLibre |
 | Android TV / Google TV | Si ADB responde | Bloqueada | Referencias externas, sin automatización propia |
 | Chromecast con Google TV / Google TV Streamer | Si ADB responde | Sin perfil propio | Guía específica e integraciones externas |
 | Chromecast clásico, Ultra o Audio | Sin ruta compatible aquí | No | No se instala un launcher Android con este proyecto |
@@ -39,7 +39,7 @@ Vega OS. Revisa la tabla oficial para identificar cada modelo.
   sesión de voz Alexa ni duplicación real. Conservar paquetes no demuestra esas funciones.
 - El **motor Python nuevo** de TVLibre se comprueba con simulación de cambios y recuperación,
   y diagnóstico/plan de solo lectura sobre el dispositivo real. No se ha aplicado ni restaurado
-  una sesión de este motor en hardware en la versión inicial.
+  una sesión de este motor en hardware en 0.1.
 
 Por tanto, «referencia» no equivale a certificar todas las funciones ni todas las actualizaciones
 del AFTSSS. Una actualización puede cambiar permisos, paquetes o accesibilidad.
@@ -61,3 +61,16 @@ Abre una incidencia con modelo, SDK y firmware, sin IP, número de serie, Wi-Fi 
 Indica perfil, operaciones aceptadas/rechazadas, reinicio, Home físico y funciones reproducidas.
 Usa la [plantilla de dispositivo](../.github/ISSUE_TEMPLATE/dispositivo.yml).
 Un nuevo modelo no se marca probado porque únicamente instale un APK.
+
+## Actualización 0.2
+
+El catálogo `integrations/devices.json` contiene 57 informes de dumbtv con fuente y revisión.
+El comando `devices` los muestra como evidencia externa, sin ampliar los modelos autorizados
+por el motor. Los informes AFTSSS incluyen PS7712.5370N y PS7717.5746N con dumbtv 1.9;
+no se confunden con ensayos de TVLibre 0.2.
+
+En la sesión del 4 de noviembre se aplicó el motor 0.1 en otro AFTSSS/Android 9,
+PS7679.4292N: 28 componentes y 13 ajustes, Home por ADB, Home físico confirmado por
+la persona y autoinicio observado antes de enviar teclas. La restauración no se ejecutó.
+El efecto automático de accesibilidad observado en esa sesión motiva la corrección de 0.2.
+La actualización 0.2 se comprueba sin conectar ni modificar televisores.

@@ -1,5 +1,17 @@
 # Historial de cambios
 
+## 0.2.0 — 2026-11-15
+
+- dumbtv 1.10-es: Home, suspensión, arranque, Appstore, cuadrícula, iconos,
+  todas las apps, posición de filas, biblioteca y exportación de preferencias.
+- Protección del emparejamiento móvil y componentes de HDMI, sintonizador y ajustes.
+  Perfil equilibrado de 32 candidatos; reparación selectiva con diario reversible.
+- Recuperación del efecto automático de accesibilidad de Android tras un corte.
+- Servidor ADB seleccionable, análisis offline y búsqueda de diarios por identidad.
+- Catálogo de 57 informes externos sin ampliar soporte automáticamente.
+- Descargas sin sobrescribir archivos ajenos, firma española conservada y pruebas ampliadas.
+- [Guía de novedades y ejemplos](docs/NOVEDADES-0.2.md).
+
 ## 0.1.0 — 2026-11-02
 
 - Guía específica para Android TV, Google TV y

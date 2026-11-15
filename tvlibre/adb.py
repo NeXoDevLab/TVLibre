@@ -13,17 +13,21 @@ class TVLibreError(RuntimeError):
 
 
 class ADB:
-    def __init__(self, serial, binary="adb"):
+    def __init__(self, serial, binary="adb", server_port=None):
         if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._:\[\]-]*", serial):
             raise TVLibreError("Identificador ADB inválido.")
         self.serial = serial
+        if server_port is not None and (not isinstance(server_port, int) or not 1 <= server_port <= 65535):
+            raise TVLibreError("Puerto de servidor ADB inválido.")
+        self.server_port = server_port
         self.binary = shutil.which(binary)
         if not self.binary:
             raise TVLibreError("No se encuentra adb. Instala Android Platform Tools.")
 
     def run(self, *args, check=True, timeout=40):
         try:
-            p = subprocess.run([self.binary, "-s", self.serial, *args],
+            prefix = [self.binary] + (["-P", str(self.server_port)] if self.server_port else [])
+            p = subprocess.run([*prefix, "-s", self.serial, *args],
                                capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
         except (OSError, subprocess.TimeoutExpired) as error:
             raise TVLibreError(f"ADB no ha completado la operación: {error}") from error
@@ -32,11 +36,15 @@ class ADB:
         return p.stdout.strip() if check else p
 
     def shell(self, *args):
+        if any('\0' in str(a) for a in args):
+            raise TVLibreError('Una orden ADB no puede contener caracteres NUL.')
         return self.run("shell", shlex.join([str(a) for a in args]))
 
     def connect(self):
         if ":" in self.serial:
-            self.run("connect", self.serial, check=False, timeout=15)
+            connection = self.run("connect", self.serial, check=False, timeout=15)
+            if "No route to host" in connection.stdout + connection.stderr:
+                raise TVLibreError("ADB no llega al TV. Comprueba red/IP y el permiso de red local de macOS. Si el puerto responde desde otro proceso, prueba --adb-server-port 5038 para usar un servidor independiente.")
         state = self.run("get-state", check=False)
         if "unauthorized" in state.stderr + state.stdout:
             raise TVLibreError("Acepta «Permitir depuración USB» en el televisor y repite.")
@@ -45,7 +53,7 @@ class ADB:
             time.sleep(1)
             state = self.run("get-state", check=False)
         if state.returncode or state.stdout.strip() != "device":
-            raise TVLibreError("El dispositivo no está conectado. Revisa IP, alimentación y ADB.")
+            raise TVLibreError("El dispositivo no está conectado. Revisa IP, alimentación y ADB; algunos Fire TV desactivan la depuración después de reiniciar.")
 
     def device(self):
         names = {

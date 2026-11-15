@@ -51,9 +51,11 @@ jobs:
         run: '"$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-25" "build-tools;36.0.0"'
       - name: Compilar y verificar firma temporal
         run: bash scripts/build-launcher.sh
+      - name: Pruebas Java sin televisor
+        run: bash scripts/test-launcher.sh
       - name: Verificar ausencia de permiso de internet
         run: |
-          if "$ANDROID_HOME/build-tools/36.0.0/aapt2" dump permissions dist/dumbtv-home-1.6-es.apk | grep -q android.permission.INTERNET; then
+          if "$ANDROID_HOME/build-tools/36.0.0/aapt2" dump permissions dist/dumbtv-home-1.10-es.apk | grep -q android.permission.INTERNET; then
             exit 1
           fi
       # La clave temporal y este APK no se publican como release.

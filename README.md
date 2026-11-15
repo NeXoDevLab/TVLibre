@@ -22,10 +22,11 @@ específico de Fire TV. Android TV y Google TV disponen de diagnóstico ADB y un
 Incluye una CLI Python sin dependencias de pip y **dumbtv Home en español**. Puedes seguir
 la guía manual o utilizar el prompt para configurar el dispositivo con Codex.
 
-**Versión inicial 0.1.0.** La lista de referencia y dumbtv se comprobaron en un Fire TV Stick
-de 3.ª generación **AFTSSS, Fire OS 7 / Android 9**. El motor nuevo tiene pruebas de simulación
-y diagnóstico real de solo lectura; su aplicación y restauración aún no se han ejecutado en
-hardware con esta versión. Consulta la [cobertura exacta](docs/COMPATIBILIDAD.md).
+**Versión 0.2.0.** Integra dumbtv 1.10-es, reparación selectiva de componentes protegidos,
+análisis de inventarios y búsqueda de respaldos por identidad. El catálogo contiene 57
+informes externos; no amplía automáticamente los permisos de limpieza. Esta actualización
+se valida con simulación y compilación, pendiente de nuevas pruebas físicas.
+Consulta [las novedades y los comandos nuevos](docs/NOVEDADES-0.2.md).
 
 ## Elige tu camino
 
@@ -46,7 +47,7 @@ hardware con esta versión. Consulta la [cobertura exacta](docs/COMPATIBILIDAD.m
 | Parte | Resultado |
 |---|---|
 | Diagnóstico e inventario | Modelo, versión Android, usuario activo y paquetes instalados. |
-| Dos perfiles | Conservador: 8 candidatos. Equilibrado: 33. Solo se actúa sobre los que estén instalados y habilitados. |
+| Dos perfiles | Conservador: 8 candidatos. Equilibrado: 32. Solo se actúa sobre los que estén instalados y habilitados. |
 | Plan antes de cambiar | Archivo JSON con cada operación, motivo y valores anteriores. |
 | Diario de restauración | Se escribe antes de cada cambio y permite recuperarse de una interrupción. |
 | Protección de funciones | Alexa, duplicación, actualizaciones, Appstore, mando, ajustes y streaming fuera de las listas de limpieza. |
@@ -94,7 +95,7 @@ La limpieza no instala ni cambia el launcher automáticamente.
 
 ## Compatibilidad resumida
 
-| Dispositivo / plataforma | TVLibre 0.1 |
+| Dispositivo / plataforma | TVLibre 0.2 |
 |---|---|
 | Fire TV Stick 3.ª gen **AFTSSS**, Android 9 / SDK 28 | Modelo de referencia; lista y launcher probados. Motor nuevo: simulación y diagnóstico real. |
 | Otros Fire TV con SDK 25, 28, 29 o 30 | Diagnóstico; prueba de limpieza solo con `--experimental`. Activación Home propia a partir de SDK 28. |

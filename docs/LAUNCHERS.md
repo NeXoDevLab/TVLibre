@@ -24,7 +24,7 @@ Desde la raíz del proyecto:
 
 ```bash
 python3 tvlibre.py launcher list
-python3 tvlibre.py launcher download --id dumbtv-es --out dist/dumbtv-home-1.6-es.apk
+python3 tvlibre.py launcher download --id dumbtv-es --out dist/dumbtv-home-1.10-es.apk
 ```
 
 La URL y SHA-256 están fijados en [`integrations/launchers.json`](../integrations/launchers.json).
@@ -34,7 +34,7 @@ que se publique; no sustituyas el enlace por una descarga de procedencia descono
 El SHA-256 de la versión española distribuida en 0.1.0 es:
 
 ```text
-85f6b36cf0cd7a65c314b63685116e58ff9a93f8f60f257f55ce75b5ddd096df
+d3513b9ae55adc97dc0bb08027390bd3d6b9c5404ad02a34c7d6404e51ee9f08
 ```
 
 La verificación prueba que recibiste el archivo esperado. La confianza en ese archivo sigue
@@ -43,7 +43,7 @@ dependiendo del proyecto y de la firma; el hash no convierte una descarga en una
 ### 2. Instalar sin activar Home todavía
 
 ```bash
-python3 tvlibre.py --serial 192.0.2.10:5555 launcher install --apk dist/dumbtv-home-1.6-es.apk --sha256 85f6b36cf0cd7a65c314b63685116e58ff9a93f8f60f257f55ce75b5ddd096df --yes
+python3 tvlibre.py --serial 192.0.2.10:5555 launcher install --apk dist/dumbtv-home-1.10-es.apk --sha256 d3513b9ae55adc97dc0bb08027390bd3d6b9c5404ad02a34c7d6404e51ee9f08 --yes
 ```
 
 Se usa `adb install -r` y se guarda una copia del APK previo si existía. **No se desinstala

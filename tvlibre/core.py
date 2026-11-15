@@ -61,6 +61,21 @@ def protected_packages():
     return set(read_json(ROOT / "profiles/protegidos.json")["packages"])
 
 
+def repair_plan(adb, packages, experimental=False):
+    device = adb.device()
+    supported(device, experimental)
+    installed = set(adb.packages())
+    operations = []
+    for package in dict.fromkeys(packages):
+        if package not in protected_packages() or package not in installed:
+            raise TVLibreError("Solo se reparan paquetes protegidos instalados y elegidos expresamente.")
+        before = adb.package_state(package)
+        if before in (2, 3, 4):
+            operations.append({"kind": "package", "package": package, "before": before, "after": 1})
+    return {"schema": 1, "purpose": "repair", "experimental": experimental,
+            "device": device, "operations": operations}
+
+
 def inventory(adb):
     device = adb.device()
     return {"schema": 1, "device": device, "packages": adb.packages(),
@@ -103,8 +118,8 @@ def make_plan(adb, name="equilibrado", keep=(), experimental=False):
                       "Los interruptores de privacidad sincronizados con Amazon se revisan también con el mando."]}
 
 
-def validate(document):
-    if not isinstance(document, dict) or document.get("schema") != 1 or document.get("purpose") not in ("cleanup", "launcher"):
+def validate(document, historical=False):
+    if not isinstance(document, dict) or document.get("schema") != 1 or document.get("purpose") not in ("cleanup", "launcher", "repair"):
         raise TVLibreError("Esquema o propósito de archivo desconocido.")
     if not isinstance(document.get("experimental"), bool):
         raise TVLibreError("Falta el indicador de compatibilidad experimental.")
@@ -122,7 +137,11 @@ def validate(document):
         kind = op.get("kind")
         if kind == "package":
             pkg = op.get("package", "")
-            if pkg not in packages or pkg in protected_packages() or op.get("before") not in (0, 1) or op.get("after") != 3:
+            repairing = document["purpose"] == "repair"
+            allowed = (pkg in protected_packages() and op.get("before") in (2, 3, 4) and op.get("after") == 1) if repairing else (pkg in packages and pkg not in protected_packages() and op.get("before") in (0, 1) and op.get("after") == 3)
+            if historical and document['purpose'] == 'cleanup' and pkg == 'com.amazon.storm.lightning.tutorial':
+                allowed = op.get('before') in (0, 1) and op.get('after') == 3
+            if not allowed:
                 raise TVLibreError("El plan intenta cambiar un paquete fuera del perfil permitido.")
             key = (kind, pkg)
         elif kind == "setting":
@@ -167,7 +186,7 @@ def current(adb, op):
 
 def set_value(adb, op, value):
     if op["kind"] == "package":
-        command = {0: "default-state", 1: "enable", 3: "disable-user"}[value]
+        command = {0: "default-state", 1: "enable", 2: "disable", 3: "disable-user", 4: "disable-until-used"}[value]
         adb.shell("pm", command, "--user", "0", op["package"])
     elif op["kind"] == "setting":
         if value is None:
@@ -202,11 +221,25 @@ def apply(adb, plan, directory="state"):
     print(f"Copia de restauración: {path}", flush=True)
     try:
         for op in backup["operations"]:
-            if current(adb, op) != op["before"]:
+            actual = current(adb, op)
+            automatic = (backup["purpose"] == "launcher" and op.get("key") == "accessibility_enabled"
+                         and actual == op["after"] == "1" and any(
+                             prior.get("key") == "enabled_accessibility_services" and prior.get("applied")
+                             and current(adb, prior) == prior["after"] for prior in backup["operations"]))
+            if actual != op["before"] and not automatic:
                 raise TVLibreError("El estado cambió durante la sesión; no se sobrescribirá ese cambio.")
             op["attempted"] = True
+            if backup["purpose"] == "launcher" and op.get("key") == "enabled_accessibility_services":
+                # Android puede activar el indicador antes de que vuelva la orden ADB.
+                # Registra su posible efecto antes de escribir, incluso si se corta la conexión.
+                for dependent in backup["operations"]:
+                    if dependent.get("key") == "accessibility_enabled":
+                        dependent["attempted"] = True
             write_json(path, backup)  # Primero se registra; después se cambia el dispositivo.
-            set_value(adb, op, op["after"])
+            if automatic:
+                op["observed_system_effect"] = True
+            else:
+                set_value(adb, op, op["after"])
             if current(adb, op) != op["after"]:
                 raise TVLibreError(f"El sistema no aceptó el cambio: {op.get('package', op.get('key'))}")
             op["applied"] = True
@@ -224,7 +257,7 @@ def apply(adb, plan, directory="state"):
 
 
 def restore(adb, backup, path):
-    validate(backup)
+    validate(backup, historical=True)
     require_journal(backup)
     same_device(backup["device"], adb.device())
     conflicts = []
@@ -255,7 +288,7 @@ def restore(adb, backup, path):
 
 
 def verify(adb, backup):
-    validate(backup)
+    validate(backup, historical=True)
     require_journal(backup)
     same_device(backup["device"], adb.device())
     result = []

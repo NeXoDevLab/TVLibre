@@ -33,23 +33,27 @@ def download(identifier, destination):
         raise TVLibreError("El destino ya existe. Elige otro para no sobrescribirlo.")
     target.parent.mkdir(parents=True, exist_ok=True)
     partial = target.with_suffix(target.suffix + ".part")
+    created = False
     try:
         request = urllib.request.Request(entry["apk_url"], headers={"User-Agent": "TVLibre/0.1"})
-        with urllib.request.urlopen(request, timeout=45) as response, partial.open("wb") as f:
-            count = 0
-            while True:
-                block = response.read(65536)
-                if not block:
-                    break
-                count += len(block)
-                if count > 30 * 1024 * 1024:
-                    raise TVLibreError("Descarga inesperadamente grande; se ha detenido.")
-                f.write(block)
+        with partial.open("xb") as f:
+            created = True
+            with urllib.request.urlopen(request, timeout=45) as response:
+                count = 0
+                while True:
+                    block = response.read(65536)
+                    if not block:
+                        break
+                    count += len(block)
+                    if count > 30 * 1024 * 1024:
+                        raise TVLibreError("Descarga inesperadamente grande; se ha detenido.")
+                    f.write(block)
         if checksum(partial) != entry["sha256"]:
             raise TVLibreError("SHA-256 incorrecto. El APK descargado no se instalará.")
-        os.replace(partial, target)
+        os.link(partial, target)  # Falla si alguien creó el destino durante la descarga.
     finally:
-        partial.unlink(missing_ok=True)
+        if created:
+            partial.unlink(missing_ok=True)
     return {"path": str(target), "sha256": entry["sha256"], "id": identifier}
 
 
