@@ -114,6 +114,14 @@ public final class ConfigTest {
             cfg.refresh();
             check("green".equals(f.open().get(Config.ACCENT)), "an applied import never comes back");
         }
+        try (Fixture f = new Fixture()) {
+            Config cfg = f.open();
+            check("off".equals(cfg.get(Config.FILTER_WATCH)), "filter watch is opt-in on old configs");
+            cfg.set("filter_watch", "on");
+            check("on".equals(f.open().get(Config.FILTER_WATCH)), "explicit filter watch persists");
+            cfg.set("filter_watch", "off");
+            check("off".equals(f.open().get(Config.FILTER_WATCH)), "opt-out persists");
+        }
         System.out.println("ConfigTest passed (Home position, import, write/rename failure, retry, acknowledgement)");
     }
 }

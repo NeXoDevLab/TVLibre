@@ -316,7 +316,7 @@ public final class Home extends Activity {
         resumed = true;
         inFront = true;
         Guard.arrived(this);
-        Filter.wake(this);
+        Filter.watch(this);
         cfg.refresh();
         cfg.visited();
         if (cfg.version() != applied) apply();

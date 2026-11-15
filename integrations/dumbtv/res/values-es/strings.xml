@@ -147,4 +147,7 @@
     <string name="choice_library_off">Oculto</string>
     <string name="app_name">dumbtv</string>
     <string name="guard_label">dumbtv home button</string>
+    <string name="choice_filter_watch">Mantener activo personalDNSfilter</string>
+    <string name="choice_filter_watch_off">Desactivado</string>
+    <string name="choice_filter_watch_on">Activado</string>
 </resources>

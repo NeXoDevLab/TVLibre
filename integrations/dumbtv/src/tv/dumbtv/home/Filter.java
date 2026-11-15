@@ -24,16 +24,21 @@ final class Filter {
 
     /** Wakes the filter now and every 15 minutes, including after our own process was killed. */
     static void watch(Context c) {
-        wake(c);
         PendingIntent check = PendingIntent.getBroadcast(c, 0,
                 new Intent(CHECK).setClass(c, BootReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarms = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
+        if (!"on".equals(Config.get(c).get(Config.FILTER_WATCH))) {
+            alarms.cancel(check);
+            return;
+        }
+        wake(c);
         alarms.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,
                 SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_FIFTEEN_MINUTES,
                 AlarmManager.INTERVAL_FIFTEEN_MINUTES, check);
     }
 
     static void wake(Context c) {
+        if (!"on".equals(Config.get(c).get(Config.FILTER_WATCH))) return;
         c.sendBroadcast(new Intent().setComponent(BOOT));
     }
 }

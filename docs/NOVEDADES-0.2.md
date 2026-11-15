@@ -11,6 +11,8 @@ elegir iconos y exportar home.conf al directorio multimedia. La biblioteca de t�
 los fondos se configuran con archivos locales; siguen siendo funciones opcionales.
 Consulta los formatos de [biblioteca y fondos de upstream](https://github.com/humblemuzzu/dumbtv/tree/b35f3ade7b92d03357ce191844525b3448e57285/launcher).
 No se activa un filtro DNS, una VPN ni descargas de imágenes al instalar el launcher.
+La supervisión de personalDNSfilter está desactivada por defecto: solo se configura
+expresamente en Opciones, y desactivarla detiene la supervisión, no la VPN de otra app.
 
 El APK español 1.10-es conserva el certificado de 1.6-es publicado por TVLibre. Actualiza
 con el instalador verificado de [Launchers](LAUNCHERS.md), que conserva una copia del APK

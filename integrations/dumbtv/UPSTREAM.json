@@ -6,7 +6,8 @@
   "local_version": "1.10-es",
   "changes": [
     "Versión local 1.10-es y código 12; firma de distribución española conservada",
-    "Traducción española de upstream revisada e integrada"
+    "Traducción española de upstream revisada e integrada",
+    "Supervisión de personalDNSfilter opcional y desactivada por defecto; no inicia una VPN sin elección"
   ],
   "license": "MIT",
   "package": "tv.dumbtv.home"
